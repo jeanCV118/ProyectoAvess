@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de observaciones</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <style>
+      html, body, #mapa {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      #mensaje {
+        position: absolute;
+        z-index: 1000;
+        bottom: 10px;
+        left: 10px;
+        max-width: 260px;
+        padding: 10px;
+        border-radius: 6px;
+        background: white;
+        box-shadow: 0 1px 5px #777;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="mapa"></div>
+    <div id="mensaje">Cargando observaciones reales...</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      // Identificadores de las especies en GBIF.
+      const aves = {
+        aruco: {
+          nombre: 'Aruco',
+          claveGbif: 2497983
+        },
+        tangara: {
+          nombre: 'Tángara azulada',
+          claveGbif: 2488602
+        },
+        jacana: {
+          nombre: 'Jacana común',
+          claveGbif: 2481846
+        }
+      }
+
+      // Obtiene el ave indicada en la dirección del mapa.
+      const parametros = new URLSearchParams(window.location.search)
+      const nombreAve = parametros.get('ave') || 'aruco'
+      const ave = aves[nombreAve] || aves.aruco
+
+      // Crea el mapa centrado en Colombia.
+      const mapa = L.map('mapa').setView([4.6, -74.2], 5)
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; OpenStreetMap | Observaciones: GBIF.org'
+      }).addTo(mapa)
+
+      // Consulta observaciones con coordenadas reales en Colombia.
+      const direccionGbif =
+        'https://api.gbif.org/v1/occurrence/search' +
+        `?taxon_key=${ave.claveGbif}` +
+        '&country=CO' +
+        '&has_coordinate=true' +
+        '&limit=300'
+
+      fetch(direccionGbif)
+        .then(respuesta => respuesta.json())
+        .then(datos => mostrarObservaciones(datos.results))
+        .catch(() => {
+          document.querySelector('#mensaje').textContent =
+            'No fue posible cargar las observaciones.'
+        })
+
+      function mostrarObservaciones(observaciones) {
+        const puntos = []
+
+        observaciones.forEach(observacion => {
+          const latitud = observacion.decimalLatitude
+          const longitud = observacion.decimalLongitude
+
+          if (latitud == null || longitud == null) return
+
+          const lugar =
+            observacion.locality ||
+            observacion.municipality ||
+            observacion.stateProvince ||
+            'Lugar no indicado'
+
+          const fecha = observacion.eventDate
+            ? observacion.eventDate.slice(0, 10)
+            : 'Fecha no indicada'
+
+          const informacion = `
+            <strong>${ave.nombre}</strong><br>
+            ${lugar}<br>
+            Fecha: ${fecha}<br>
+            Coordenadas: ${latitud}, ${longitud}<br>
+            <a
+              href="https://www.gbif.org/occurrence/${observacion.key}"
+              target="_blank"
+              rel="noreferrer"
+            >Ver registro en GBIF</a>
+          `
+
+          L.marker([latitud, longitud])
+            .addTo(mapa)
+            .bindPopup(informacion)
+
+          puntos.push([latitud, longitud])
+        })
+
+        if (puntos.length > 0) {
+          mapa.fitBounds(puntos, { padding: [20, 20] })
+        }
+
+        document.querySelector('#mensaje').innerHTML =
+          `<strong>${ave.nombre}</strong><br>` +
+          `${puntos.length} observaciones reales mostradas.`
+      }
+    </script>
+  </body>
+</html>

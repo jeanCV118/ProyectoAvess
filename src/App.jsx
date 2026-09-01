@@ -22,13 +22,13 @@ export default function App() {
             <a href="#exhibicion">Exhibición</a>
           </li>
           <li>
-            <a href="#perdiz">Perdiz colorada</a>
+            <a href="#aruco">Aruco</a>
           </li>
           <li>
-            <a href="#tucan">Cabezón tucán</a>
+            <a href="#tangara">Tángara azulada</a>
           </li>
           <li>
-            <a href="#polla-azul">Polla azul de agua</a>
+            <a href="#jacana">Jacana común</a>
           </li>
           <li>
             <a href="#contacto">Contacto</a>
@@ -53,8 +53,7 @@ export default function App() {
           </p>
           <p>
             En esta exhibición conoceremos tres especies:
-            la Perdiz colorada, el Cabezón tucán y la Polla azul
-            de agua.
+            el Aruco, la Tángara azulada y la Jacana común.
           </p>
           <a href="#exhibicion">
             Comenzar la exhibición
@@ -75,24 +74,24 @@ export default function App() {
           <article>
             <figure>
               <img
-                src="https://commons.wikimedia.org/wiki/Special:FilePath/Chestnut%20wood%20quail%20%28Odontophorus%20hyperythrus%29.jpg"
-                alt="Fotografa de una Perdiz colorada"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Anhima%20cornuta.jpg"
+                alt="Fotografía de un Aruco"
                 width="350"
               />
               <figcaption>
-                Perdiz colorada
+                Aruco
               </figcaption>
             </figure>
-            <h3>Perdiz colorada</h3>
+            <h3>Aruco</h3>
             <p>
               <strong>Nombre cientifico:</strong>
-              <em>Odontophorus hyperythrus</em>
+              <em>Anhima cornuta</em>
             </p>
             <p>
-              Ave terrestre relacionada principalmente
-              con los bosques húmedos de los Andes colombianos.
+              Gran ave relacionada con humedales, pantanos,
+              lagunas y sabanas inundables.
             </p>
-            <a href="#perdiz">
+            <a href="#aruco">
               Conocer más sobre esta ave
             </a>
           </article>
@@ -101,24 +100,24 @@ export default function App() {
           <article>
             <figure>
               <img
-                src="https://commons.wikimedia.org/wiki/Special:FilePath/Semnornis%20ramphastinus%20258139738.jpg"
-                alt="Fotograf�a de un Cabez�n tuc�n"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Thraupis%20episcopus.jpg"
+                alt="Fotografía de una Tángara azulada"
                 width="350"
               />
               <figcaption>
-                Cabezón tucán
+                Tángara azulada
               </figcaption>
             </figure>
-            <h3>Cabezón tucán</h3>
+            <h3>Tángara azulada</h3>
             <p>
               <strong>Nombre cientifico:</strong>
-              <em>Semnornis ramphastinus</em>
+              <em>Thraupis episcopus</em>
             </p>
             <p>
-              Habita principalmente bosques húmedos y bosques
-              de niebla de la región occidental de Colombia.
+              Habita bosques abiertos, jardines, parques,
+              cultivos y ciudades de Colombia.
             </p>
-            <a href="#tucan">
+            <a href="#tangara">
               Conocer más sobre esta ave
             </a>
           </article>
@@ -127,55 +126,55 @@ export default function App() {
           <article>
             <figure>
               <img
-                src="https://commons.wikimedia.org/wiki/Special:FilePath/Tingua%20Azul%20%28Porphyrio%20martinica%29.jpg"
-                alt="Fotograf�a de una Polla azul de agua"
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Jacana%20jacana.jpg"
+                alt="Fotografía de una Jacana común"
                 width="350"
               />
               <figcaption>
-                Polla azul de agua
+                Jacana común
               </figcaption>
             </figure>
-            <h3>Polla azul de agua</h3>
+            <h3>Jacana común</h3>
             <p>
               <strong>Nombre cientifico:</strong>
-              <em>Porphyrio martinica</em>
+              <em>Jacana jacana</em>
             </p>
             <p>
-              Ave acuática que puede encontrarse en humedales,
-              lagunas y pantanos con abundante vegetación.
+              Ave acuática de lagunas, ciénagas y pantanos
+              con abundante vegetación flotante.
             </p>
-            <a href="#polla-azul">
+            <a href="#jacana">
               Conocer más sobre esta ave
             </a>
           </article>
         </section>
 
-        {/* INFORMACIÓN PERDIZ COLORADA */}
-        <section id="perdiz">
+        {/* INFORMACIÓN ARUCO */}
+        <section id="aruco">
           <header>
-            <h2>Perdiz colorada</h2>
+            <h2>Aruco</h2>
             <p>
-              <em>Odontophorus hyperythrus</em>
+              <em>Anhima cornuta</em>
             </p>
           </header>
           <figure>
             <img
-              src="https://commons.wikimedia.org/wiki/Special:FilePath/Chestnut%20wood%20quail%20%28Odontophorus%20hyperythrus%29.jpg"
-              alt="Perdiz colorada en su h�bitat"
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/Anhima%20cornuta.jpg"
+              alt="Aruco en su hábitat"
               width="500"
             />
             <figcaption>
-              Perdiz colorada
+              Aruco
             </figcaption>
           </figure>
 
           {/* INFORMACIÓN GENERAL */}
           <article>
-            <h3>¿Por que se llama Perdiz colorada?</h3>
+            <h3>¿Por qué se llama Aruco?</h3>
             <p>
-              Su nombre común hace referencia principalmente
-              a los tonos castaños y rojizos presentes en
-              distintas partes de su plumaje.
+              También conocido como gritador cornudo, se distingue
+              por la estructura córnea alargada que sobresale
+              de su cabeza.
             </p>
           </article>
 
@@ -183,13 +182,12 @@ export default function App() {
           <article>
             <h3>Comportamiento</h3>
             <p>
-              Es principalmente terrestre y suele desplazarse
-              caminando por el suelo del bosque.
+              Permanece asociado a ambientes acuáticos y puede
+              desplazarse entre zonas de vegetación inundada.
             </p>
             <p>
-              Busca alimento entre la vegetación y la hojarasca,
-              donde puede encontrar frutos, semillas y pequeños
-              invertebrados.
+              Su alimentación es principalmente herbívora:
+              consume plantas acuáticas, hojas, brotes y semillas.
             </p>
           </article>
 
@@ -197,9 +195,9 @@ export default function App() {
           <aside>
             <h3>Dato curioso</h3>
             <p>
-              Es una especie endémica de Colombia, lo que
-              significa que su distribución natural se encuentra
-              únicamente dentro del territorio colombiano.
+              Posee espolones en las alas y fuertes vocalizaciones.
+              No es exclusivo de Colombia: también habita otros
+              países de Sudamérica tropical.
             </p>
           </aside>
 
@@ -207,18 +205,17 @@ export default function App() {
           <article>
             <h3>Su habitat</h3>
             <p>
-              Vive principalmente en bosques húmedos montanos.
-              Estos ecosistemas poseen abundante vegetación,
-              árboles, arbustos, musgos y una gran cantidad
-              de materia vegetal sobre el suelo.
+              Vive principalmente en humedales tropicales,
+              sabanas inundables, lagunas, pantanos, ciénagas
+              y zonas próximas a ríos.
             </p>
             <h4>Características del habitat</h4>
             <ul>
-              <li>Bosques húmedos.</li>
-              <li>Regiones montañosas.</li>
-              <li>Vegetación densa.</li>
-              <li>Abundante hojarasca.</li>
-              <li>Climas frescos y húmedos.</li>
+              <li>Humedales tropicales.</li>
+              <li>Sabanas inundables.</li>
+              <li>Lagunas y pantanos.</li>
+              <li>Vegetación acuática.</li>
+              <li>Zonas cercanas a ríos.</li>
             </ul>
           </article>
 
@@ -226,21 +223,20 @@ export default function App() {
           <article>
             <h3>¿Dónde se encuentra?</h3>
             <p>
-              La especie habita diferentes regiones de los
-              Andes colombianos, especialmente sectores
-              montañosos de las cordilleras Central y Occidental.
+              En Colombia se encuentra principalmente en la
+              Amazonia y la Orinoquía, además de otros humedales
+              como la Laguna de Sonso en el Valle del Cauca.
             </p>
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-77.2%2C2.7%2C-74.7%2C6.6&layer=mapnik&marker=3.45%2C-76.53"
+              src="/mapa-aves.html?ave=aruco"
               width="600"
               height="400"
-              title="Mapa de distribuci�n representativa de la Perdiz colorada"
+              title="Mapa de distribución representativa del Aruco"
             />
             <p>
               <small>
-                El mapa muestra una región representativa
-                de su distribución y no la ubicación exacta
-                de ejemplares individuales.
+                Cada marcador corresponde a una observación
+                con coordenadas publicada en GBIF.
               </small>
             </p>
           </article>
@@ -250,32 +246,32 @@ export default function App() {
           </a>
         </section>
 
-        {/* INFORMACIÓN CABEZA TUCÁN */}
-        <section id="tucan">
+        {/* INFORMACIÓN TÁNGARA AZULADA */}
+        <section id="tangara">
           <header>
-            <h2>Cabezón tucán</h2>
+            <h2>Tángara azulada</h2>
             <p>
-              <em>Semnornis ramphastinus</em>
+              <em>Thraupis episcopus</em>
             </p>
           </header>
           <figure>
             <img
-              src="https://commons.wikimedia.org/wiki/Special:FilePath/Semnornis%20ramphastinus%20258139738.jpg"
-              alt="Cabez�n tuc�n"
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/Thraupis%20episcopus.jpg"
+              alt="Tángara azulada"
               width="500"
             />
             <figcaption>
-              Cabezón tucán
+              Tángara azulada
             </figcaption>
           </figure>
 
           {/* NOMBRE */}
           <article>
-            <h3>¿Por qué se llama Cabezón tucán?</h3>
+            <h3>¿Por qué se llama Tángara azulada?</h3>
             <p>
-              Su nombre hace referencia a su cabeza robusta
-              y a su pico grande y llamativo, que recuerda
-              visualmente al pico de los tucanes.
+              Su nombre común hace referencia al plumaje
+              azul grisáceo que cubre la cabeza, el dorso
+              y el pecho.
             </p>
           </article>
 
@@ -283,13 +279,12 @@ export default function App() {
           <article>
             <h3>Comportamiento</h3>
             <p>
-              Puede observarse en parejas o pequeños grupos
-              moviéndose entre las ramas de los árboles.
+              Puede vivir en bosques abiertos, jardines,
+              parques, cultivos y zonas urbanas.
             </p>
             <p>
-              Utiliza diferentes niveles del bosque y puede
-              comunicarse mediante llamados fuertes entre
-              individuos.
+              Construye pequeños nidos en árboles o arbustos
+              utilizando fibras vegetales y otros materiales.
             </p>
           </article>
 
@@ -297,10 +292,8 @@ export default function App() {
           <article>
             <h3>Alimentación</h3>
             <p>
-              Su alimentación está compuesta principalmente
-              por frutos, aunque también puede consumir
-              insectos y otros pequeños alimentos disponibles
-              en el bosque.
+              Consume frutos, semillas, bayas, néctar,
+              insectos y otros pequeños invertebrados.
             </p>
           </article>
 
@@ -308,10 +301,9 @@ export default function App() {
           <aside>
             <h3>Dato curioso</h3>
             <p>
-              Puede presentar comportamientos de cooperación
-              familiar, donde algunos individuos participan
-              en actividades relacionadas con el cuidado
-              del grupo.
+              Al consumir frutos contribuye a la dispersión
+              de semillas y se adapta con facilidad a los
+              ambientes transformados por las personas.
             </p>
           </aside>
 
@@ -319,21 +311,20 @@ export default function App() {
           <article>
             <h3>Su hábitat</h3>
             <p>
-              Vive principalmente en bosques húmedos de montaña
-              y bosques de niebla.
+              Vive en bosques abiertos, bordes de bosque,
+              jardines, parques y zonas agrícolas y urbanas.
             </p>
             <p>
-              Estos ecosistemas poseen árboles altos,
-              abundante humedad, musgos, helechos y numerosas
-              plantas que crecen sobre los árboles.
+              Esta variedad de ambientes explica por qué es
+              común observarla en muchas ciudades colombianas.
             </p>
             <h4>Características del hábitat</h4>
             <ul>
-              <li>Bosques de niebla.</li>
-              <li>Árboles altos.</li>
-              <li>Alta humedad.</li>
-              <li>Regiones montañosas.</li>
-              <li>Vegetación abundante.</li>
+              <li>Bosques abiertos.</li>
+              <li>Bordes de bosque.</li>
+              <li>Jardines y parques.</li>
+              <li>Zonas agrícolas.</li>
+              <li>Áreas urbanas.</li>
             </ul>
           </article>
 
@@ -341,19 +332,19 @@ export default function App() {
           <article>
             <h3>¿Dónde se encuentra?</h3>
             <p>
-              En Colombia se encuentra principalmente en
-              bosques de la región occidental del país.
+              En Colombia se encuentra ampliamente distribuida,
+              tanto en ambientes naturales como rurales y urbanos.
             </p>
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-78.6%2C0.7%2C-75.6%2C4.5&layer=mapnik&marker=3.65%2C-76.69"
+              src="/mapa-aves.html?ave=tangara"
               width="600"
               height="400"
-              title="Mapa de distribuci�n representativa del Cabez�n tuc�n"
+              title="Mapa de distribución representativa de la Tángara azulada"
             />
             <p>
               <small>
-                El mapa presenta una zona representativa
-                de su distribución.
+                Cada marcador corresponde a una observación
+                con coordenadas publicada en GBIF.
               </small>
             </p>
           </article>
@@ -363,33 +354,32 @@ export default function App() {
           </a>
         </section>
 
-        {/* INFORMACI�N POLLA AZUL */}
-        <section id="polla-azul">
+        {/* INFORMACIÓN JACANA COMÚN */}
+        <section id="jacana">
           <header>
-            <h2>Polla azul de agua</h2>
+            <h2>Jacana común</h2>
             <p>
-              <em>Porphyrio martinica</em>
+              <em>Jacana jacana</em>
             </p>
           </header>
           <figure>
             <img
-              src="https://commons.wikimedia.org/wiki/Special:FilePath/Tingua%20Azul%20%28Porphyrio%20martinica%29.jpg"
-              alt="Polla azul de agua"
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/Jacana%20jacana.jpg"
+              alt="Jacana común"
               width="500"
             />
             <figcaption>
-              Polla azul de agua
+              Jacana común
             </figcaption>
           </figure>
 
           {/* NOMBRE */}
           <article>
-            <h3>¿Por qué se llama Polla azul de agua?</h3>
+            <h3>¿Por qué se llama Jacana común?</h3>
             <p>
-              Su nombre hace referencia a su relación con
-              otras aves conocidas como pollas de agua y
-              a los intensos colores azules y púrpuras
-              presentes en su plumaje.
+              Su nombre identifica a una especie ampliamente
+              distribuida en los humedales de América tropical,
+              principalmente en Sudamérica.
             </p>
           </article>
 
@@ -397,13 +387,13 @@ export default function App() {
           <article>
             <h3>Comportamiento</h3>
             <p>
-              Se desplaza entre vegetación acuática utilizando
-              sus patas y dedos largos.
+              Se desplaza sobre la vegetación acuática utilizando
+              sus dedos y uñas extremadamente largos.
             </p>
             <p>
-              Esta característica le permite caminar sobre
-              hojas, tallos y plantas flotantes mientras
-              busca alimento.
+              Presenta poliandria: una hembra puede reproducirse
+              con varios machos, quienes cuidan los huevos
+              y los polluelos.
             </p>
           </article>
 
@@ -411,9 +401,8 @@ export default function App() {
           <article>
             <h3>Alimentación</h3>
             <p>
-              Consume diferentes materiales vegetales,
-              semillas, frutos y pequeños organismos que
-              encuentra dentro de los ecosistemas acuáticos.
+              Consume principalmente insectos y otros invertebrados,
+              además de semillas y pequeños organismos acuáticos.
             </p>
           </article>
 
@@ -421,7 +410,7 @@ export default function App() {
           <aside>
             <h3>Dato curioso</h3>
             <p>
-              Sus largos dedos permiten distribuir su peso
+              Sus dedos y uñas largos permiten distribuir su peso
               sobre una superficie mayor, facilitándole
               caminar sobre plantas flotantes.
             </p>
@@ -454,21 +443,20 @@ export default function App() {
           <article>
             <h3>¿Dónde se encuentra?</h3>
             <p>
-              Puede encontrarse en diferentes humedales
-              y ecosistemas acuáticos del territorio
-              colombiano.
+              Puede encontrarse en diferentes lagunas, ciénagas,
+              pantanos y cuerpos de agua con vegetación flotante
+              del territorio colombiano.
             </p>
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-74.25%2C4.55%2C-73.95%2C4.85&layer=mapnik&marker=4.71%2C-74.10"
+              src="/mapa-aves.html?ave=jacana"
               width="600"
               height="400"
-              title="Mapa de humedales donde puede encontrarse la Polla azul de agua"
+              title="Mapa de humedales donde puede encontrarse la Jacana común"
             />
             <p>
               <small>
-                El mapa está centrado en la región de Bogotá,
-                donde existen diferentes humedales utilizados
-                por numerosas especies de aves acuáticas.
+                Cada marcador corresponde a una observación
+                con coordenadas publicada en GBIF.
               </small>
             </p>
           </article>

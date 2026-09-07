@@ -1,15 +1,21 @@
 import './App.css'
+import logoUAO from './assets/logo-uao.png'
 
 export default function App() {
   return (
     <>
       {/* HEADER */}
       <header id="inicio">
-        <h1>Aves de Colombia</h1>
-        <p>
-          Exhibición virtual sobre algunas de las increíbles
-          especies de aves que habitan nuestro territorio.
-        </p>
+        <div className="header-content">
+          <img src={logoUAO} alt="Logo Universidad Autónoma de Occidente" className="logo-uao" />
+          <div className="header-text">
+            <h1>Aves de Cali</h1>
+            <p>
+              Exhibición virtual sobre algunas de las increíbles
+              especies de aves que habitan en Cali.
+            </p>
+          </div>
+        </div>
       </header>
 
       {/* NAVEGACION */}
@@ -40,20 +46,23 @@ export default function App() {
       <main>
         {/* PRESENTACIÓN */}
         <section>
-          <h2>Descubre las aves de Colombia</h2>
+          <h2>Descubre las aves de Cali</h2>
           <p>
-            Colombia posee una enorme variedad de ecosistemas,
-            desde bosques hmedos y montaas hasta lagunas,
-            pantanos y humedales.
+            Santiago de Cali es reconocida como la capital mundial
+            de las aves. Sus farallones, el corredor del río Cauca,
+            el río Pance, los humedales urbanos y el cerro de La
+            Bandera concentran centenares de especies residentes
+            y migratorias.
           </p>
           <p>
-            Esta diversidad permite que numerosas especies de
-            aves encuentren alimento, refugio y lugares adecuados
-            para reproducirse.
+            Esta diversidad de ecosistemas permite que, en un mismo
+            día, sea posible observar aves de bosque de niebla,
+            de bosque seco, de zonas de humedal y de parque urbano
+            en distintos puntos de la ciudad.
           </p>
           <p>
-            En esta exhibición conoceremos tres especies:
-            el Aruco, la Tángara azulada y la Jacana común.
+            En esta exhibición conoceremos tres especies presentes
+            en Cali: el Aruco, la Tángara azulada y la Jacana común.
           </p>
           <a href="#exhibicion">
             Comenzar la exhibición
@@ -191,6 +200,22 @@ export default function App() {
             </p>
           </article>
 
+          <article>
+            <h3>Video del Aruco</h3>
+            <video controls width="500" src="/video/aruco.mp4">
+              Tu navegador no soporta el elemento de video.
+            </video>
+            <p><small>Fuente: youtube, licencia libre</small></p>
+          </article>
+
+          <article>
+            <h3>Canto del Aruco</h3>
+            <audio controls src="/audio/aruco.mp3">
+              Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p><small>Grabación: Peter Boesman, Xeno-canto XC218588 — El Vaticano, Caquetá, Colombia</small></p>
+          </article>
+
           {/* DATO CURIOSO */}
           <aside>
             <h3>Dato curioso</h3>
@@ -286,6 +311,22 @@ export default function App() {
               Construye pequeños nidos en árboles o arbustos
               utilizando fibras vegetales y otros materiales.
             </p>
+          </article>
+
+          <article>
+            <h3>Video de la Tángara azulada</h3>
+            <video controls width="500" src="/video/tangara.mp4">
+              Tu navegador no soporta el elemento de video.
+            </video>
+            <p><small>Fuente: youtube, licencia libre</small></p>
+          </article>
+
+          <article>
+            <h3>Canto de la Tángara azulada</h3>
+            <audio controls src="/audio/tangara.mp3">
+              Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p><small>Grabación: Andrés Angulo, Xeno-canto XC343255</small></p>
           </article>
 
           {/* ALIMENTACIÓN */}
@@ -397,6 +438,22 @@ export default function App() {
             </p>
           </article>
 
+          <article>
+            <h3>Video de la Jacana común</h3>
+            <video controls width="500" src="/video/jacana.mp4">
+              Tu navegador no soporta el elemento de video.
+            </video>
+            <p><small>Fuente: youtube, licencia libre</small></p>
+          </article>
+
+          <article>
+            <h3>Canto de la Jacana común</h3>
+            <audio controls src="/audio/jacana.mp3">
+              Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p><small>Grabación: Andrés Angulo, Xeno-canto XC287956 — Mocagua, Leticia, Amazonas</small></p>
+          </article>
+
           {/* ALIMENTACI�N */}
           <article>
             <h3>Alimentación</h3>
@@ -482,20 +539,100 @@ export default function App() {
         </section>
       </main>
 
-      {/* FOOTER */}
+
+
+      {/* CRÉDITOS */}
+      <section id="creditos">
+        <h2>Créditos y licencias</h2>
+        <p>
+          Esta exhibición utiliza recursos multimedia libres y gratuitos,
+          respetando la licencia y atribución de cada fuente.
+        </p>
+
+        <article>
+          <h3>Fotografías</h3>
+          <ul>
+            <li>Aruco (<em>Anhima cornuta</em>) — Wikimedia Commons</li>
+            <li>Tángara azulada (<em>Thraupis episcopus</em>) — Wikimedia Commons</li>
+            <li>Jacana común (<em>Jacana jacana</em>) — Wikimedia Commons</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Sonidos (cantos)</h3>
+          <ul>
+            <li>Aruco — Peter Boesman, Xeno-canto <a href="https://xeno-canto.org/218588" target="_blank" rel="noreferrer">XC218588</a></li>
+            <li>Tángara azulada — Andrés Angulo, Xeno-canto <a href="https://xeno-canto.org/343255" target="_blank" rel="noreferrer">XC343255</a></li>
+            <li>Jacana común — Andrés Angulo, Xeno-canto <a href="https://xeno-canto.org/287956" target="_blank" rel="noreferrer">XC287956</a></li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Videos</h3>
+          <ul>
+            <li>
+              Aruco — YouTube,{' '}
+              <a href="https://youtu.be/wwnjYzM00J4" target="_blank" rel="noreferrer">
+                youtu.be/wwnjYzM00J4
+              </a>{' '}
+              (licencia libre)
+            </li>
+            <li>
+              Tángara azulada — YouTube,{' '}
+              <a href="https://youtu.be/r3-Q3x3j6zw" target="_blank" rel="noreferrer">
+                youtu.be/r3-Q3x3j6zw
+              </a>{' '}
+              (licencia libre)
+            </li>
+            <li>
+              Jacana común — YouTube,{' '}
+              <a href="https://www.youtube.com/watch?v=yGQr6A8aEQQ" target="_blank" rel="noreferrer">
+                youtube.com/watch?v=yGQr6A8aEQQ
+              </a>{' '}
+              (licencia libre)
+            </li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Mapa y datos de distribución</h3>
+          <ul>
+            <li>Cartografía: Leaflet + OpenStreetMap contributors</li>
+            <li>Observaciones geográficas: GBIF.org</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Identidad institucional</h3>
+          <ul>
+            <li>Logo: Universidad Autónoma de Occidente (UAO)</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Código fuente</h3>
+          <p>
+            Disponible en GitHub bajo licencia MIT.
+            Recursos multimedia bajo licencias Creative Commons con atribución.
+          </p>
+        </article>
+      </section>
+
+
+
+
+
       <footer id="contacto">
-        <h2>Aves de Colombia</h2>
+        <h2>Aves de Cali</h2>
         <p>
-          Exhibición educativa de biodiversidad colombiana.
+          Exhibición educativa sobre la biodiversidad de Cali,
+          capital mundial de las aves.
         </p>
         <p>
-          Proyecto académico - Ingeniería Multimedia
+          Proyecto académico — Arquitectura de Sistemas Multimedia,
+          Universidad Autónoma de Occidente (UAO)
         </p>
-        <nav>
-          <a href="#inicio">
-            Volver al inicio
-          </a>
-        </nav>
+        
       </footer>
     </>
   )

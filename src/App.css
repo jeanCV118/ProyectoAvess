@@ -27,6 +27,28 @@ header {
   overflow: hidden;
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.header-text {
+  text-align: left;
+}
+
+.logo-uao {
+  height: 150px;
+  background: #ffffff;
+  padding: 0.5rem;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
 /* Detalles decorativos del encabezado */
 header::before {
   content: "";

@@ -202,7 +202,7 @@ export default function App() {
 
           <article>
             <h3>Video del Aruco</h3>
-            <video controls width="500" src="/video/aruco.mp4">
+            <video controls width="500" src={`${import.meta.env.BASE_URL}video/aruco.mp4`}>
               Tu navegador no soporta el elemento de video.
             </video>
             <p><small>Fuente: youtube, licencia libre</small></p>
@@ -210,7 +210,7 @@ export default function App() {
 
           <article>
             <h3>Canto del Aruco</h3>
-            <audio controls src="/audio/aruco.mp3">
+            <audio controls src={`${import.meta.env.BASE_URL}audio/aruco.mp3`}>
               Tu navegador no soporta el elemento de audio.
             </audio>
             <p><small>Grabación: Peter Boesman, Xeno-canto XC218588 — El Vaticano, Caquetá, Colombia</small></p>
@@ -253,7 +253,7 @@ export default function App() {
               como la Laguna de Sonso en el Valle del Cauca.
             </p>
             <iframe
-              src="/mapa-aves.html?ave=aruco"
+              src={`${import.meta.env.BASE_URL}mapa-aves.html?ave=aruco`}
               width="600"
               height="400"
               title="Mapa de distribución representativa del Aruco"
@@ -315,7 +315,7 @@ export default function App() {
 
           <article>
             <h3>Video de la Tángara azulada</h3>
-            <video controls width="500" src="/video/tangara.mp4">
+            <video controls width="500" src={`${import.meta.env.BASE_URL}video/tangara.mp4`}>
               Tu navegador no soporta el elemento de video.
             </video>
             <p><small>Fuente: youtube, licencia libre</small></p>
@@ -323,7 +323,7 @@ export default function App() {
 
           <article>
             <h3>Canto de la Tángara azulada</h3>
-            <audio controls src="/audio/tangara.mp3">
+            <audio controls src={`${import.meta.env.BASE_URL}audio/tangara.mp3`}>
               Tu navegador no soporta el elemento de audio.
             </audio>
             <p><small>Grabación: Andrés Angulo, Xeno-canto XC343255</small></p>
@@ -377,7 +377,7 @@ export default function App() {
               tanto en ambientes naturales como rurales y urbanos.
             </p>
             <iframe
-              src="/mapa-aves.html?ave=tangara"
+              src={`${import.meta.env.BASE_URL}mapa-aves.html?ave=tangara`}
               width="600"
               height="400"
               title="Mapa de distribución representativa de la Tángara azulada"
@@ -440,7 +440,7 @@ export default function App() {
 
           <article>
             <h3>Video de la Jacana común</h3>
-            <video controls width="500" src="/video/jacana.mp4">
+            <video controls width="500" src={`${import.meta.env.BASE_URL}video/jacana.mp4`}>
               Tu navegador no soporta el elemento de video.
             </video>
             <p><small>Fuente: youtube, licencia libre</small></p>
@@ -448,13 +448,13 @@ export default function App() {
 
           <article>
             <h3>Canto de la Jacana común</h3>
-            <audio controls src="/audio/jacana.mp3">
+            <audio controls src={`${import.meta.env.BASE_URL}audio/jacana.mp3`}>
               Tu navegador no soporta el elemento de audio.
             </audio>
             <p><small>Grabación: Andrés Angulo, Xeno-canto XC287956 — Mocagua, Leticia, Amazonas</small></p>
           </article>
 
-          {/* ALIMENTACI�N */}
+          {/* ALIMENTACIÓN */}
           <article>
             <h3>Alimentación</h3>
             <p>
@@ -505,7 +505,7 @@ export default function App() {
               del territorio colombiano.
             </p>
             <iframe
-              src="/mapa-aves.html?ave=jacana"
+              src={`${import.meta.env.BASE_URL}mapa-aves.html?ave=jacana`}
               width="600"
               height="400"
               title="Mapa de humedales donde puede encontrarse la Jacana común"

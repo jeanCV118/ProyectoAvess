@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de observaciones</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <style>
+      html, body, #mapa {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      #mensaje {
+        position: absolute;
+        z-index: 1000;
+        bottom: 10px;
+        left: 10px;
+        max-width: 260px;
+        padding: 10px;
+        border-radius: 6px;
+        background: white;
+        box-shadow: 0 1px 5px #777;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+      }
+
+      .leyenda-cali {
+        color: #c62828;
+        font-weight: bold;
+      }
+
+      .leyenda-otras {
+        color: #1565c0;
+        font-weight: bold;
+      }
+
+      #volver-cali {
+        margin-top: 7px;
+        padding: 5px 8px;
+        border: 0;
+        border-radius: 4px;
+        background: #2e7d32;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="mapa"></div>
+    <div id="mensaje">Cargando observaciones reales...</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      // Identificadores de las especies en GBIF.
+      const aves = {
+        aruco: {
+          nombre: 'Aruco',
+          claveGbif: 2497983
+        },
+        tangara: {
+          nombre: 'Tángara azulada',
+          claveGbif: 2488602
+        },
+        jacana: {
+          nombre: 'Jacana común',
+          claveGbif: 2481846
+        }
+      }
+
+      // Obtiene el ave indicada en la dirección del mapa.
+      const parametros = new URLSearchParams(window.location.search)
+      const nombreAve = parametros.get('ave') || 'aruco'
+      const ave = aves[nombreAve] || aves.aruco
+
+      // El mapa inicia centrado en Cali.
+      const centroCali = [3.4516, -76.5320]
+      const mapa = L.map('mapa').setView(centroCali, 10)
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; OpenStreetMap | Observaciones: GBIF.org'
+      }).addTo(mapa)
+
+      const direccionBase =
+        'https://api.gbif.org/v1/occurrence/search' +
+        `?taxon_key=${ave.claveGbif}` +
+        '&country=CO&has_coordinate=true&limit=300'
+
+      // Esta zona incluye Cali y sus alrededores cercanos.
+      const zonaCali =
+        'POLYGON((-76.75 3.15,-76.25 3.15,-76.25 3.75,-76.75 3.75,-76.75 3.15))'
+
+      const consultaColombia = fetch(direccionBase)
+        .then(respuesta => respuesta.json())
+
+      const consultaCali = fetch(
+        direccionBase + '&geometry=' + encodeURIComponent(zonaCali)
+      ).then(respuesta => respuesta.json())
+
+      Promise.all([consultaColombia, consultaCali])
+        .then(([colombia, cali]) => {
+          mostrarObservaciones(colombia.results, cali.results)
+        })
+        .catch(() => {
+          document.querySelector('#mensaje').textContent =
+            'No fue posible cargar las observaciones.'
+        })
+
+      function estaEnCali(observacion) {
+        const latitud = observacion.decimalLatitude
+        const longitud = observacion.decimalLongitude
+
+        return latitud >= 3.15 && latitud <= 3.75 &&
+          longitud >= -76.75 && longitud <= -76.25
+      }
+
+      function nombreCiudad(observacion) {
+        return observacion.municipality ||
+          observacion.locality ||
+          observacion.stateProvince ||
+          'Lugar no indicado'
+      }
+
+      function elegirOtrasCiudades(observaciones) {
+        const ciudades = {}
+
+        observaciones.forEach(observacion => {
+          if (estaEnCali(observacion)) return
+
+          const ciudad = nombreCiudad(observacion)
+          if (!ciudades[ciudad]) ciudades[ciudad] = []
+
+          if (ciudades[ciudad].length < 2) {
+            ciudades[ciudad].push(observacion)
+          }
+        })
+
+        return Object.values(ciudades)
+          .filter(registros => registros.length >= 2)
+          .slice(0, 8)
+          .flat()
+      }
+
+      function mostrarObservaciones(observacionesColombia, observacionesCali) {
+        const registrosCali = observacionesCali.slice(0, 80)
+        const registrosOtrasCiudades = elegirOtrasCiudades(observacionesColombia)
+        const observaciones = [...registrosCali, ...registrosOtrasCiudades]
+        const registrosUsados = new Set()
+
+        observaciones.forEach(observacion => {
+          const latitud = observacion.decimalLatitude
+          const longitud = observacion.decimalLongitude
+
+          if (latitud == null || longitud == null) return
+
+          if (registrosUsados.has(observacion.key)) return
+          registrosUsados.add(observacion.key)
+
+          const lugar = nombreCiudad(observacion)
+          const esCali = estaEnCali(observacion)
+
+          const fecha = observacion.eventDate
+            ? observacion.eventDate.slice(0, 10)
+            : 'Fecha no indicada'
+
+          const informacion = `
+            <strong>${ave.nombre}</strong><br>
+            <strong>${esCali ? 'Cali y alrededores' : 'Otra ciudad'}</strong><br>
+            ${lugar}<br>
+            Fecha: ${fecha}<br>
+            Coordenadas: ${latitud}, ${longitud}<br>
+            <a
+              href="https://www.gbif.org/occurrence/${observacion.key}"
+              target="_blank"
+              rel="noreferrer"
+            >Ver registro en GBIF</a>
+          `
+
+          L.circleMarker([latitud, longitud], {
+            radius: esCali ? 9 : 6,
+            color: esCali ? '#8b0000' : '#0d47a1',
+            fillColor: esCali ? '#f44336' : '#2196f3',
+            fillOpacity: 0.85,
+            weight: esCali ? 3 : 2
+          })
+            .addTo(mapa)
+            .bindPopup(informacion)
+        })
+
+        document.querySelector('#mensaje').innerHTML =
+          `<strong>${ave.nombre}</strong><br>` +
+          `<span class="leyenda-cali">● Cali: ${registrosCali.length} registros</span><br>` +
+          `<span class="leyenda-otras">● Otras ciudades: ${registrosOtrasCiudades.length} registros</span><br>` +
+          'Se muestran 2 avistamientos por cada ciudad diferente de Cali.<br>' +
+          '<button id="volver-cali">Volver a Cali</button>'
+
+        document.querySelector('#volver-cali').addEventListener('click', () => {
+          mapa.setView(centroCali, 10)
+        })
+      }
+    </script>
+  </body>
+</html>
